@@ -313,7 +313,7 @@ function showExitIntentPopup() {
             <h3 style="margin-bottom: 16px; color: #1a1a1a;">Espere! Não vá embora ainda...</h3>
             <p style="margin-bottom: 24px; color: #666;">
                 Você está a um passo de revolucionar seu processo de DIFAL com o Tax Bot. 
-                Cadastre seu e-mail e seja o primeiro a testar!
+                Cadastre seu e-mail e comece a testar!
             </p>
             
             <form id="exitIntentForm" style="display: flex; gap: 12px; margin-bottom: 16px;">

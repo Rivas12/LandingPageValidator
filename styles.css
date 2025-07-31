@@ -908,7 +908,7 @@ body {
 
 .savings {
     background: #10b981;
-    color: white;
+    color: white !important;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 12px;
@@ -1348,6 +1348,7 @@ body {
 }
 
 .total-cost {
+    color: white;
     margin-bottom: 12px;
 }
 
@@ -1358,6 +1359,10 @@ body {
     margin-bottom: 4px;
 }
 
+.total-cost-taxbot {
+    color: white !important;
+}
+
 .total-cost strong {
     font-size: 1.5rem;
     font-weight: 800;
@@ -1365,7 +1370,7 @@ body {
 }
 
 .savings strong {
-    color: #059669;
+    color: white;
 }
 
 .investment {
