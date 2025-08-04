@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Bot - Gere guias de DIFAL em segundos</title>
+    <title>Tax Bot - Automatize seus cálculos de DIFAL</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,336 +15,251 @@
         
         window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
     </script>
+    
+    <!-- JivoChat -->
     <script src="https://code.jivosite.com/widget/VPlXtgI7XJ" async></script>
 </head>
 
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <!-- Header Navigation -->
-        <nav class="hero-nav">
-            <div class="container">
-                <div class="nav-content">
-                    <div class="logo">
-                        <i class="fas fa-robot"></i>
-                        <span>Tax Bot</span>
-                    </div>
-                    <div class="nav-badge">
-                        <i class="fas fa-fire"></i>
-                        Oferta Limitada - 48h restantes
-                    </div>
-                </div>
-            </div>
-        </nav>
-
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="hero-content">
-                <!-- Main Content -->
-                <div class="hero-main">
-                    <div class="hero-eyebrow">
-                        <i class="fas fa-shield-check"></i>
-                        Usado por 2.300+ empresas
-                    </div>
-                    
-                    <h1 class="hero-title">
-                        Pare de perder <span class="highlight">R$ 50.000+</span><br>
-                        em multas de DIFAL
-                    </h1>
-                    
-                    <p class="hero-subtitle">
-                        Automatize 100% dos seus cálculos de DIFAL em 5 segundos. 
-                        Zero erros, zero multas, tranquilidade total.
-                    </p>
-                    
-                    <!-- Social Proof Numbers -->
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">2.300+</div>
-                            <div class="stat-label">Empresas protegidas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">R$ 1.2M</div>
-                            <div class="stat-label">Economizados em multas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5s</div>
-                            <div class="stat-label">Para gerar uma guia</div>
-                        </div>
-                    </div>
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>Tax Bot</span>
                 </div>
-                
-                <!-- CTA Section -->
-                <div class="hero-cta">
-                    <div class="cta-card">
-                        <div class="cta-header">
-                            <h3>🎁 Comece Gratuitamente</h3>
-                            <p>2 meses de acesso completo + consultoria fiscal + geração ilimitada</p>
-                            <div class="value-highlight">
-                                <span class="old-price">De R$ 994</span>
-                                <span class="new-price">Grátis hoje</span>
-                            </div>
-                        </div>
-                        
-                        <form class="hero-form" id="emailForm">
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Digite seu melhor e-mail" required>
-                                <button type="submit" class="btn-cta">
-                                    <span>Começar Agora</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </form>
-                        
-                        <div class="form-benefits">
-                            <div class="benefit-item">
-                                <i class="fas fa-check"></i>
-                                <span>Sem cartão de crédito</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-check"></i>
-                                <span>Acesso imediato</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-check"></i>
-                                <span>Suporte incluído</span>
-                            </div>
-                        </div>
-                        
-                        <div class="urgency-note">
-                            <i class="fas fa-clock"></i>
-                            <span>Últimas 150 vagas para esta oferta + geração ilimitada</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Visual Proof -->
-            <div class="hero-visual">
-                <div class="visual-container">
-                    <div class="dashboard-mockup">
-                        <div class="mockup-header">
-                            <div class="mockup-controls">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <span class="mockup-title">Tax Bot</span>
-                        </div>
-                        <div class="mockup-content">
-                            <div class="success-message">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Guia DIFAL gerada com sucesso!</span>
-                            </div>
-                            <div class="result-summary">
-                                <div class="result-item">
-                                    <span class="label">Tempo gasto:</span>
-                                    <span class="value">5 segundos</span>
-                                </div>
-                                <div class="result-item">
-                                    <span class="label">Status:</span>
-                                    <span class="value success">✓ Aprovada</span>
-                                </div>
-                                <div class="result-item">
-                                    <span class="label">Valor economizado:</span>
-                                    <span class="value highlight">R$ 47.300</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Floating elements for visual interest -->
-                    <div class="floating-card card-1">
-                        <i class="fas fa-bolt"></i>
-                        <span>5s por guia</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Zero multas</span>
-                    </div>
-                    <div class="floating-card card-3">
-                        <i class="fas fa-chart-line"></i>
-                        <span>+500% eficiência</span>
-                    </div>
-                    <div class="floating-card card-4">
-                        <i class="fas fa-infinity"></i>
-                        <span>Geração ilimitada</span>
-                    </div>
-                    <div class="floating-card card-5">
-                        <i class="fas fa-trophy"></i>
-                        <span>2.300+ clientes</span>
-                    </div>
-                    <div class="floating-card card-6">
-                        <i class="fas fa-check-circle"></i>
-                        <span>100% precisão</span>
-                    </div>
+                <div class="nav-cta">
+                    <a href="#cta" class="btn-nav">Começar Grátis</a>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Social Proof Section - Moved up for early validation -->
-    <section class="social-proof">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h2 class="section-title">Mais de 2.300 empresas já economizaram milhões</h2>
-            
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Economizamos R$ 340.000 em multas no primeiro ano. O Tax Bot se pagou na primeira semana de uso."</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        🚀 Mais de 10.000 guias DIFAL geradas
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Carlos Mendes</h4>
-                            <span>CFO, TechnoLog Ltda</span>
+                    
+                    <h1 class="hero-title">
+                        Calcule DIFAL em 
+                        <span class="highlight">5 segundos</span>
+                        <br>sem risco de erro
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Sistema inteligente que automatiza 100% dos seus cálculos de DIFAL. 
+                        Elimine multas, economize horas e tenha 100% de precisão garantida.
+                    </p>
+                    
+                    <div class="hero-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check"></i>
+                            <span>Geração instantânea em 5 segundos</span>
                         </div>
-                        <div class="savings">R$ 340k economizados</div>
+                        <div class="benefit">
+                            <i class="fas fa-check"></i>
+                            <span>100% precisão garantida</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check"></i>
+                            <span>Todos os 27 estados do Brasil</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check"></i>
+                            <span>Economize até 20 horas por mês</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-proof">
+                        <div class="proof-avatars">
+                            <div class="avatar">M</div>
+                            <div class="avatar">J</div>
+                            <div class="avatar">A</div>
+                            <div class="avatar">C</div>
+                            <div class="avatar">+</div>
+                        </div>
+                        <div class="proof-info">
+                            <span class="proof-text">Usado por mais de 500 empresas</span>
+                            <div class="proof-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5 (127 avaliações)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Antes perdíamos 20 horas mensais com DIFAL. Agora são 10 minutos. Nossa equipe foca na estratégia."</p>
+                <div class="hero-form-card">
+                    <div class="form-header">
+                        <h3>🎯 Teste Grátis por 14 dias</h3>
+                        <p>Sem cartão de crédito • Cancelamento gratuito</p>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Ana Paula Silva</h4>
-                            <span>Diretora Fiscal, Grupo Inovação</span>
+                    
+                    <form class="hero-form" id="leadForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Digite seu melhor e-mail" required>
+                            <button type="submit" class="btn-primary">
+                                Começar Teste Grátis
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
-                        <div class="savings">+18h produtivas/mês</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Sistema perfeito! Zero erros em 8 meses de uso. A tranquilidade que isso traz não tem preço."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Roberto Almeida</h4>
-                            <span>Contador Senior, Contábil Plus</span>
+                    </form>
+                    
+                    <div class="form-footer">
+                        <div class="security-items">
+                            <div class="security-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Dados seguros</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Acesso em 2 min</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-headset"></i>
+                                <span>Suporte incluído</span>
+                            </div>
                         </div>
-                        <div class="savings">0 erros em 8 meses</div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="results-summary">
-                <div class="result-item">
-                    <div class="result-number">R$1.2M</div>
-                    <div class="result-label">Economizados em multas</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">2.300+</div>
-                    <div class="result-label">Empresas protegidas</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">99.8%</div>
-                    <div class="result-label">Taxa de satisfação</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">0</div>
-                    <div class="result-label">Multas recebidas</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem-section">
+    <section class="problem">
         <div class="container">
-            <div class="problem-content">
-                <h2 class="problem-title">Você está perdendo dinheiro todos os dias</h2>
-                
-                <div class="problem-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">R$ 50.000</div>
-                        <div class="stat-label">Multa média por erro no DIFAL</div>
+            <h2 class="section-title">O DIFAL está complicando sua vida?</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-item">
+                    <div class="problem-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">20 horas</div>
-                        <div class="stat-label">Perdidas mensalmente com cálculos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">87%</div>
-                        <div class="stat-label">Das empresas cometem erros</div>
-                    </div>
+                    <h4>Horas perdidas com planilhas</h4>
+                    <p>Cálculos manuais demorados que consomem tempo da sua equipe</p>
                 </div>
                 
-                <div class="pain-points">
-                    <div class="pain-item">
-                        <i class="fas fa-times-circle"></i>
-                        <div>
-                            <h4>Planilhas complexas que sempre falham</h4>
-                            <p>Fórmulas desatualizadas, cálculos manuais propensos a erro humano</p>
-                        </div>
+                <div class="problem-item">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
                     </div>
-                    <div class="pain-item">
-                        <i class="fas fa-times-circle"></i>
-                        <div>
-                            <h4>Legislação muda sem você saber</h4>
-                            <p>Cada estado tem regras específicas que mudam constantemente</p>
-                        </div>
+                    <h4>Risco de multas por erro</h4>
+                    <p>Um erro de cálculo pode resultar em multas de até R$ 50.000</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="problem-icon">
+                        <i class="fas fa-sync-alt"></i>
                     </div>
-                    <div class="pain-item">
-                        <i class="fas fa-times-circle"></i>
-                        <div>
-                            <h4>Multas pesadas chegam sem aviso</h4>
-                            <p>Fiscalização rigorosa transforma erro pequeno em prejuízo gigante</p>
-                        </div>
-                    </div>
+                    <h4>Legislação sempre mudando</h4>
+                    <p>Regras específicas de cada estado que mudam frequentemente</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Solution Section -->
-    <section class="solution-section">
+    <section class="solution">
         <div class="container">
             <div class="solution-content">
                 <div class="solution-text">
-                    <h2>Com o Tax Bot, você pode finalmente...</h2>
+                    <h2 class="section-title">Como o Tax Bot resolve isso</h2>
                     
                     <div class="solution-list">
                         <div class="solution-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Gerar guias DIFAL em <strong>5 segundos</strong> com precisão total</span>
+                            <div class="solution-number">01</div>
+                            <div class="solution-info">
+                                <h4>Automatização completa</h4>
+                                <p>Insira os dados básicos e o sistema gera a guia DIFAL automaticamente em 5 segundos</p>
+                            </div>
                         </div>
+                        
                         <div class="solution-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Ter certeza de que <strong>nunca mais</strong> receberá multa por DIFAL</span>
+                            <div class="solution-number">02</div>
+                            <div class="solution-info">
+                                <h4>Cálculos sempre corretos</h4>
+                                <p>Sistema conectado aos órgãos fiscais com atualizações automáticas das regras</p>
+                            </div>
                         </div>
+                        
                         <div class="solution-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Economizar <strong>R$ 200.000+</strong> por ano em multas evitadas</span>
-                        </div>
-                        <div class="solution-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Gerar <strong>quantas guias precisar</strong> sem limitação</span>
+                            <div class="solution-number">03</div>
+                            <div class="solution-info">
+                                <h4>PDF pronto para pagamento</h4>
+                                <p>Guia gerada no formato oficial, pronta para impressão ou pagamento online</p>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
                 
                 <div class="solution-visual">
-                    <div class="before-after">
-                        <div class="before">
-                            <h4>ANTES (Método Manual)</h4>
-                            <ul>
-                                <li>20 horas por mês</li>
-                                <li>87% chance de erro</li>
-                                <li>R$ 50.000 em multas</li>
-                                <li>Estresse constante</li>
-                            </ul>
+                    <div class="demo-card">
+                        <div class="demo-header">
+                            <div class="demo-controls">
+                                <span class="control-red"></span>
+                                <span class="control-yellow"></span>
+                                <span class="control-green"></span>
+                            </div>
+                            <span class="demo-title">Tax Bot - Sistema DIFAL</span>
                         </div>
-                        <div class="arrow">→</div>
-                        <div class="after">
-                            <h4>DEPOIS (Tax Bot)</h4>
-                            <ul>
-                                <li>5 segundos por guia</li>
-                                <li>0% chance de erro</li>
-                                <li>R$ 0 em multas</li>
-                                <li>Geração ilimitada</li>
-                            </ul>
+                        <div class="demo-content">
+                            <div class="demo-form">
+                                <div class="demo-field">
+                                    <label>🏭 Origem</label>
+                                    <div class="demo-input">São Paulo (SP)</div>
+                                </div>
+                                <div class="demo-field">
+                                    <label>📍 Destino</label>
+                                    <div class="demo-input">Rio de Janeiro (RJ)</div>
+                                </div>
+                                <div class="demo-field">
+                                    <label>💰 Valor da Operação</label>
+                                    <div class="demo-input">R$ 100.000,00</div>
+                                </div>
+                                <div class="demo-calculation">
+                                    <div class="calc-loading">
+                                        <div class="calc-spinner"></div>
+                                        <span id="calc-text">Calculando DIFAL...</span>
+                                    </div>
+                                </div>
+                                <div class="demo-result">
+                                    <div class="result-info">
+                                        <span class="result-label">DIFAL Calculado:</span>
+                                        <span class="result-value">R$ 12.000,00</span>
+                                    </div>
+                                    <button class="demo-btn">
+                                        <i class="fas fa-file-pdf"></i>
+                                        Gerar PDF
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="demo-success">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Guia gerada em 5 segundos!</span>
+                            </div>
+                            <div class="demo-features">
+                                <div class="demo-feature">
+                                    <i class="fas fa-shield-check"></i>
+                                    <span>100% Preciso</span>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Instantâneo</span>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>PDF Oficial</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,455 +267,287 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">Como o Tax Bot transforma sua operação fiscal</h2>
+            <h2 class="section-title">Por que escolher o Tax Bot</h2>
             
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Criação automática de guias em 5 segundos</h3>
-                    <p>Nossa IA elimina 14 horas de trabalho manual por mês. Gere guias DIFAL perfeitas em 5 segundos, quantas vezes precisar, e use o tempo economizado para crescer seu negócio.</p>
+                    <h4>Rapidez extrema</h4>
+                    <p>De horas para segundos. Gere quantas guias precisar instantaneamente.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Cálculo exato com base na legislação atualizada</h3>
-                    <p>Sistema conectado diretamente com os órgãos fiscais. Atualizações automáticas garantem 100% de conformidade com as regras de cada estado, eliminando qualquer risco de multa.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Acesse relatórios e histórico completo</h3>
-                    <p>Mantenha controle total com relatórios detalhados e histórico de todas as operações.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Libere seus funcionários para tarefas importantes</h3>
-                    <p>Sua equipe pode focar no que realmente importa enquanto automatizamos o DIFAL.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-piggy-bank"></i>
-                    </div>
-                    <h3>Mais barato que qualquer sistema fiscal tradicional</h3>
-                    <p>Economia real comparado a sistemas complexos e caros do mercado.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Elimine o risco de multas por erro no DIFAL</h3>
-                    <p>Garantia de conformidade 100%. Nossa tecnologia já protegeu 2.347 empresas, evitando R$ 1.2Mi em multas. Durma tranquilo sabendo que está protegido.</p>
+                    <h4>Zero multas</h4>
+                    <p>Cálculos 100% precisos com atualizações automáticas da legislação.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h4>Todos os estados</h4>
+                    <p>Funciona para todos os 26 estados + DF com regras específicas atualizadas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Suporte especializado</h4>
+                    <p>Equipe fiscal experiente disponível para tirar suas dúvidas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison-section">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <div class="comparison-header-content">
-                <h2 class="section-title">Por que milhares escolheram o Tax Bot</h2>
-                <p class="section-subtitle">Veja a diferença entre continuar perdendo dinheiro ou proteger sua empresa</p>
-            </div>
+            <h2 class="section-title">O que nossos clientes dizem</h2>
             
-            <div class="comparison-container">
-                <!-- Método Tradicional -->
-                <div class="comparison-card traditional-card">
-                    <div class="card-header">
-                        <div class="card-icon traditional-icon">
-                            <i class="fas fa-file-excel"></i>
-                        </div>
-                        <h3>Método Tradicional</h3>
-                        <p>Planilhas e cálculos manuais</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Economizamos 15 horas por mês com o Tax Bot. O retorno foi imediato."</p>
                     </div>
-                    
-                    <div class="comparison-items">
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Tempo por guia</span>
-                                <span class="item-value">2-4 horas</span>
-                            </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>Maria Silva</h5>
+                            <span>Contadora, Empresa ABC</span>
                         </div>
-                        
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Chance de erro</span>
-                                <span class="item-value">87%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Custo de multas/ano</span>
-                                <span class="item-value">R$ 89.000+</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Atualizações legais</span>
-                                <span class="item-value">Manual (atrasado)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-user-times"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Suporte técnico</span>
-                                <span class="item-value">Inexistente</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-item negative">
-                            <div class="item-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Relatórios</span>
-                                <span class="item-value">Planilhas bagunçadas</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <div class="total-cost">
-                            <span>Custo anual total:</span>
-                            <strong>R$ 150.000+</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VS Divider -->
-                <div class="vs-divider">
-                    <div class="vs-circle">
-                        <span>VS</span>
-                    </div>
-                    <div class="vs-line"></div>
-                </div>
-
-                <!-- Tax Bot -->
-                <div class="comparison-card taxbot-card">
-                    <div class="card-header">
-                        <div class="card-icon taxbot-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Tax Bot</h3>
-                        <p>Automação inteligente completa</p>
-                    </div>
-                    
-                    <div class="comparison-items">
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Tempo por guia</span>
-                                <span class="item-value">5 segundos</span>
-                            </div>
-                            <div class="improvement">+99% mais rápido</div>
-                        </div>
-                        
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Chance de erro</span>
-                                <span class="item-value">0%</span>
-                            </div>
-                            <div class="improvement">100% precisão</div>
-                        </div>
-                        
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-piggy-bank"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Custo de multas/ano</span>
-                                <span class="item-value">R$ 0</span>
-                            </div>
-                            <div class="improvement">Zero multas</div>
-                        </div>
-                        
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Atualizações legais</span>
-                                <span class="item-value">Automática (tempo real)</span>
-                            </div>
-                            <div class="improvement">Sempre atualizado</div>
-                        </div>
-                        
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Suporte técnico</span>
-                                <span class="item-value">24/7 especializado</span>
-                            </div>
-                            <div class="improvement">Suporte premium</div>
-                        </div>
-                        
-                        <div class="comparison-item positive">
-                            <div class="item-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Relatórios</span>
-                                <span class="item-value">Dashboard completo</span>
-                            </div>
-                            <div class="improvement">Inteligência de dados</div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <div class="total-cost savings">
-                            <span class="total-cost-taxbot">Economia anual:</span>
-                            <strong>R$ 150.000+</strong>
-                        </div>
-                        <div class="investment">
-                            <span>Investimento:</span>
-                            <strong class="free-price">2 meses GRÁTIS</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="comparison-cta">
-                <div class="cta-content">
-                    <h3>A escolha é óbvia</h3>
-                    <p>Pare de correr riscos desnecessários e comece a economizar <strong>R$ 150.000+ por ano</strong></p>
-                    <div class="cta-stats">
-                        <div class="stat">
-                            <span class="stat-number">2.300+</span>
-                            <span class="stat-label">empresas já escolheram</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">R$ 1.2M</span>
-                            <span class="stat-label">economizados em multas</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">0</span>
-                            <span class="stat-label">erros registrados</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Urgency Section - Moved before FAQ for better flow -->
-    <section class="urgency-section">
-        <div class="container">
-            <div class="urgency-content">
-                <div class="urgency-text">
-                    <h2>Cada dia que você espera está perdendo dinheiro</h2>
-                    <p>Enquanto você lê este texto, empresas como a sua estão recebendo multas de R$ 50.000+ por erros no DIFAL que poderiam ser evitados.</p>
-                    
-                    <div class="cost-calculator">
-                        <h3>Seu prejuízo anual sem o Tax Bot:</h3>
-                        <div class="calc-items">
-                            <div class="calc-item">
-                                <span>Tempo perdido com cálculos manuais:</span>
-                                <strong>R$ 28.800/ano</strong>
-                            </div>
-                            <div class="calc-item">
-                                <span>Risco de multa por erro (média):</span>
-                                <strong>R$ 50.000</strong>
-                            </div>
-                            <div class="calc-item">
-                                <span>Retrabalho e correções:</span>
-                                <strong>R$ 21.600/ano</strong>
-                            </div>
-                            <div class="calc-total">
-                                <span>Total que você pode economizar:</span>
-                                <strong>R$ 100.000+/ano</strong>
-                            </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
                 </div>
                 
-                <div class="countdown-wrapper">
-                    <div class="countdown-box">
-                        <h3>Oferta Especial Termina Em:</h3>
-                        <div class="countdown">
-                            <div class="time-unit">
-                                <span class="number">47</span>
-                                <span class="label">Horas</span>
-                            </div>
-                            <div class="time-unit">
-                                <span class="number">23</span>
-                                <span class="label">Minutos</span>
-                            </div>
-                            <div class="time-unit">
-                                <span class="number">45</span>
-                                <span class="label">Segundos</span>
-                            </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Sistema perfeito! Nunca mais tivemos problemas com DIFAL."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>João Santos</h5>
+                            <span>CFO, TechnoLog</span>
                         </div>
-                        <p>Apenas 150 vagas restantes para 2 meses gratuitos</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Interface muito fácil de usar. Recomendo para qualquer empresa."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h5>Ana Costa</h5>
+                            <span>Diretora Fiscal, Grupo XYZ</span>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
+    <!-- Pricing -->
+    <section class="pricing">
         <div class="container">
-            <h2 class="section-title">Perguntas que nossos clientes fazem</h2>
+            <div class="pricing-content">
+                <div class="pricing-text">
+                    <h2 class="section-title">Comece hoje mesmo</h2>
+                    <p class="pricing-subtitle">
+                        Teste por 14 dias grátis. Sem compromisso, sem cartão de crédito.
+                        Se não gostar, cancele com um clique.
+                    </p>
+                    
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <i class="fas fa-infinity"></i>
+                            <span>Geração ilimitada de guias DIFAL</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fas fa-headset"></i>
+                            <span>Suporte prioritário por email e WhatsApp</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Atualizações automáticas da legislação</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Relatórios detalhados e histórico</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Acesso via web e mobile</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-testimonial">
+                        <div class="testimonial-quote">
+                            "Economizei R$ 15.000 em multas no primeiro mês. 
+                            O Tax Bot se pagou sozinho!"
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Carlos Mendes</strong> - CFO, TechCorp
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-badge">🔥 Oferta Limitada</div>
+                    
+                    <div class="pricing-header">
+                        <h3>Plano Profissional</h3>
+                        <p>Tudo que você precisa para automatizar o DIFAL</p>
+                    </div>
+                    
+                    <div class="pricing-price">
+                        <div class="price-comparison">
+                            <span class="price-old">R$ 197</span>
+                            <span class="price-discount">70% OFF</span>
+                        </div>
+                        <div class="price-current">
+                            <span class="price-currency">R$</span>
+                            <span class="price-value">57</span>
+                            <span class="price-period">/mês</span>
+                        </div>
+                        <div class="price-savings">
+                            Economia de R$ 140/mês
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-trial">
+                        <div class="trial-badge">
+                            <i class="fas fa-gift"></i>
+                            <strong>14 dias grátis</strong>
+                        </div>
+                        <span>Depois apenas R$ 57/mês</span>
+                    </div>
+                    
+                    <form class="pricing-form" id="pricingForm">
+                        <input type="email" placeholder="Digite seu melhor e-mail" required>
+                        <button type="submit" class="btn-pricing">
+                            <span>Começar Teste Grátis Agora</span>
+                            <i class="fas fa-rocket"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="pricing-guarantees">
+                        <div class="guarantee">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Garantia de 30 dias</span>
+                        </div>
+                        <div class="guarantee">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Sem cartão de crédito</span>
+                        </div>
+                        <div class="guarantee">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Cancele quando quiser</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-urgency">
+                        <i class="fas fa-clock"></i>
+                        <span>Oferta válida até o final do mês</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Dúvidas frequentes</h2>
             
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>Quanto tempo leva para implementar?</h3>
-                    <p>Menos de 5 minutos. Basta fazer o cadastro e começar a usar imediatamente. Não precisa instalar nada, é 100% online.</p>
+                    <h4>Como funciona o teste grátis?</h4>
+                    <p>Você tem 14 dias para usar todas as funcionalidades sem pagar nada. Não é necessário cartão de crédito.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>E se eu não souber usar?</h3>
-                    <p>Impossível não saber. É mais fácil que usar WhatsApp. Além disso, temos suporte 24/7 e treinamento gratuito para sua equipe.</p>
+                    <h4>Funciona para todos os estados?</h4>
+                    <p>Sim, o sistema funciona para todos os 26 estados brasileiros + DF, com regras específicas sempre atualizadas.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Como garantem que não haverá erros?</h3>
-                    <p>Sistema conectado diretamente aos órgãos fiscais + IA treinada em milhões de casos + 2.347 empresas sem nenhuma multa = garantia total.</p>
+                    <h4>E se eu não souber usar?</h4>
+                    <p>O sistema é muito simples, mas oferecemos suporte completo por email e WhatsApp para qualquer dúvida.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Funciona para todos os estados?</h3>
-                    <p>Sim, todos os 26 estados + DF. Regras específicas de cada estado atualizadas automaticamente em tempo real.</p>
+                    <h4>Posso cancelar quando quiser?</h4>
+                    <p>Sim, você pode cancelar a qualquer momento. Não há fidelidade nem taxa de cancelamento.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>E se eu não ficar satisfeito?</h3>
-                    <p>Garantia de 30 dias. Se não economizar pelo menos 10x o valor investido, devolvemos 100% do seu dinheiro.</p>
+                    <h4>Como garanto que não haverá erros?</h4>
+                    <p>O sistema é conectado diretamente aos órgãos fiscais e testado por centenas de empresas. Oferecemos garantia total.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Por que só 2 meses grátis agora?</h3>
-                    <p>Oferta limitada para os primeiros 500 novos usuários. Depois disso, volta ao preço normal de R$ 497/mês.</p>
+                    <h4>Qual é o suporte disponível?</h4>
+                    <p>Suporte por email e WhatsApp de segunda a sexta, das 9h às 18h, com time especializado em DIFAL.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final Urgency CTA -->
-    <section class="final-urgency" id="email-section">
-        <div class="container">
-            <div class="urgency-box">
-                <h2>⚠️ Últimas 48 horas para garantir 2 meses gratuitos</h2>
-                
-                <div class="value-stack">
-                    <h3>O que você recebe hoje:</h3>
-                    <div class="value-items">
-                        <div class="value-item">
-                            <i class="fas fa-check"></i>
-                            <span>Tax Bot completo por 2 meses (Valor: R$ 2.982)</span>
-                            <strong>GRÁTIS</strong>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-check"></i>
-                            <span>Consultoria fiscal personalizada (Valor: R$ 2.500)</span>
-                            <strong>GRÁTIS</strong>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-check"></i>
-                            <span>Treinamento completo da equipe (Valor: R$ 1.200)</span>
-                            <strong>GRÁTIS</strong>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-check"></i>
-                            <span>Suporte prioritário 24/7 (Valor: R$ 800)</span>
-                            <strong>GRÁTIS</strong>
-                        </div>
-                        <div class="value-total">
-                            <span>Valor total: R$ 7.482</span>
-                            <strong>Seu investimento hoje: R$ 0</strong>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="final-cta-form">
-                    <h3>Comece gratuitamente agora e economize R$ 100.000+ por ano</h3>
-                    <form class="email-form-urgent" id="emailFormUrgent">
-                        <div class="form-group">
-                            <input type="email" placeholder="Digite seu melhor e-mail" required>
-                            <button type="submit" class="btn-urgent">
-                                <i class="fas fa-shield-alt"></i>
-                                COMEÇAR GRATUITAMENTE
-                            </button>
-                        </div>
-                    </form>
-                    <p class="guarantee">✅ 2 meses gratuitos • ✅ Sem risco • ✅ Cancelamento gratuito</p>
-                </div>
-                
-                <div class="scarcity">
-                    <p><strong>⏰ Restam apenas 150 vagas</strong> para esta oferta especial</p>
-                    <p>Após as 500 vagas, o preço volta para R$ 497/mês</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="final-cta">
+    <!-- Final CTA -->
+    <section class="final-cta" id="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Não deixe para amanhã o que pode proteger sua empresa hoje</h2>
-                <p>Milhares de empresas já escolheram a segurança. Seja a próxima a eliminar o risco de multas para sempre.</p>
+                <h2>Pronto para automatizar seu DIFAL?</h2>
+                <p>Junte-se a centenas de empresas que já economizam tempo e evitam multas com o Tax Bot.</p>
                 
-                <form class="email-form-final" id="emailFormFinal">
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu melhor e-mail" required>
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-shield-alt"></i>
-                            Proteger minha empresa
-                        </button>
-                    </div>
+                <form class="cta-form" id="finalForm">
+                    <input type="email" placeholder="Digite seu melhor e-mail" required>
+                    <button type="submit" class="btn-final">
+                        Começar Teste Grátis - 14 dias
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </form>
                 
-                <div class="trust-indicators">
-                    <div class="trust-item">
-                        <i class="fas fa-lock"></i>
-                        <span>100% Seguro</span>
+                <div class="cta-guarantee">
+                    <div class="guarantee-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Sem cartão de crédito</span>
                     </div>
-                    <div class="trust-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Sem Spam</span>
-                    </div>
-                    <div class="trust-item">
+                    <div class="guarantee-item">
                         <i class="fas fa-clock"></i>
-                        <span>Acesso Imediato</span>
+                        <span>Acesso em 2 minutos</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Cancele quando quiser</span>
                     </div>
                 </div>
             </div>
@@ -810,7 +557,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Tax Bot. Todos os direitos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-robot"></i>
+                    <span>Tax Bot</span>
+                </div>
+                <p>&copy; 2025 Tax Bot. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
